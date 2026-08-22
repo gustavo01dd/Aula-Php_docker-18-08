@@ -1,3 +1,4 @@
+use controle_financeiro;
 -- Tabela de Categorias Financeiras
 CREATE TABLE IF NOT EXISTS `categorias` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
