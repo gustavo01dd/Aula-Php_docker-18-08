@@ -397,3 +397,15 @@ input[type="submit"]:focus-visible {
   content: "❌";
   font-size: 15px;
 }
+
+.mensagem {
+  animation: mensagem-desaparecer 0.4s ease-in forwards;
+  animation-delay: 4s;
+}
+
+@keyframes mensagem-desaparecer {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

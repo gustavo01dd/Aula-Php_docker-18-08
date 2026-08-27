@@ -143,11 +143,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_transacao']
 </head>
 
 <body>
-
+    <!-- mensagem de sucesso e erro -->
 <?php if (isset($_GET['sucesso'])): ?>
 
     <div class="mensagem sucesso">
         <?= htmlspecialchars($_GET['sucesso']) ?>
+    </div>
+
+<?php endif; ?>
+
+<?php if (isset($_GET['erro'])): ?>
+
+    <div class="mensagem erro">
+        <?= htmlspecialchars($_GET['erro']) ?>
     </div>
 
 <?php endif; ?>
