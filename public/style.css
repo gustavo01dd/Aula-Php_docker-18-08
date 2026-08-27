@@ -18,8 +18,11 @@
   --teal-dark: #0b443e;
   --teal-soft: rgba(15, 94, 86, 0.09);
   --brass: #b8862e;
+  --brass-soft: rgba(184, 134, 46, 0.1);
   --danger: #a5322a;
   --danger-soft: rgba(165, 50, 42, 0.09);
+  --receita: #1e8e5a;
+  --receita-soft: rgba(30, 142, 90, 0.08);
   --border: #d9dee6;
   --radius: 8px;
   --shadow: 0 1px 3px rgba(28, 37, 48, 0.08), 0 1px 2px rgba(28, 37, 48, 0.04);
@@ -70,6 +73,84 @@ h2 {
   font-weight: 600;
   color: var(--teal-dark);
   margin: 36px 0 14px;
+}
+
+/* Cards de resumo (Receitas / Despesas / Saldo) ------------ */
+
+.cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.card {
+  flex: 1 1 200px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px 22px;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(28, 37, 48, 0.1), 0 2px 4px rgba(28, 37, 48, 0.06);
+}
+
+.card h3 {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin: 0 0 10px;
+}
+
+.card p {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.card.receita {
+  border-top-color: var(--receita);
+}
+
+.card.receita p {
+  color: var(--receita);
+}
+
+.card.receita:hover {
+  background: var(--receita-soft);
+}
+
+.card.despesa {
+  border-top-color: var(--danger);
+}
+
+.card.despesa p {
+  color: var(--danger);
+}
+
+.card.despesa:hover {
+  background: var(--danger-soft);
+}
+
+.card.saldo {
+  border-top-color: var(--brass);
+}
+
+.card.saldo p {
+  color: var(--teal-dark);
+}
+
+.card.saldo:hover {
+  background: var(--brass-soft);
 }
 
 /* Formulários (Adicionar / Editar) ------------------------- */
@@ -258,6 +339,10 @@ input[type="submit"]:focus-visible {
 
   h1 {
     font-size: 26px;
+  }
+
+  .cards {
+    flex-direction: column;
   }
 
   form {

@@ -14,6 +14,19 @@ try {
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    // Calcular total de receitas
+$totalReceitas = $pdo->query(
+    "SELECT COALESCE(SUM(valor), 0) FROM transacoes WHERE tipo = 'receita'"
+)->fetchColumn();
+
+// Calcular total de despesas
+$totalDespesas = $pdo->query(
+    "SELECT COALESCE(SUM(valor), 0) FROM transacoes WHERE tipo = 'despesa'"
+)->fetchColumn();
+
+// Calcular saldo
+$saldo = $totalReceitas - $totalDespesas;
+
     // Adicionar categoria
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_categoria'])) {
 
@@ -131,6 +144,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_transacao']
 
 <body>
 
+<div class="cards">
+
+    <div class="card receita">
+        <h3>💰 Receitas</h3>
+
+        <p>
+            R$ <?= number_format($totalReceitas, 2, ',', '.') ?>
+        </p>
+    </div>
+
+    <div class="card despesa">
+        <h3>💸 Despesas</h3>
+
+        <p>
+            R$ <?= number_format($totalDespesas, 2, ',', '.') ?>
+        </p>
+    </div>
+
+    <div class="card saldo">
+        <h3>📊 Saldo</h3>
+
+        <p>
+            R$ <?= number_format($saldo, 2, ',', '.') ?>
+        </p>
+    </div>
+
+</div>
 
     <h1>Controle Financeiro</h1>
 
