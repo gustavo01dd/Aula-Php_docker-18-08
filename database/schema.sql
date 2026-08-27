@@ -24,7 +24,7 @@ USE controle_financeiro;
 
 -- 1. Inserindo dados na tabela 'categorias'
 INSERT INTO `categorias` (`nome`, `cor`, `tipo`) VALUES 
-('Salário', '#28a745', 'receita'),       
+('Salário', '#218338', 'receita'),       
 ('Freelance', '#17a2b8', 'receita'),     
 ('Alimentação', '#dc3545', 'despesa'),  
 ('Transporte', '#ffc107', 'despesa'),    
