@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_categoria']
         ':tipo' => $tipo
     ]);
 
-    header("Location: index.php");
+    header("Location: index.php?sucesso=Categoria adicionada com sucesso!");
     exit;
 }
 
@@ -73,13 +73,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_transacao']
         ':data_transacao' => $data_transacao
     ]);
 
-    header("Location: index.php");
+    header("Location: index.php?sucesso=Transação adicionada com sucesso!");
     exit;
 }
 
     // Buscar categorias
     $categorias = $pdo->query(
-        "SELECT * FROM categorias ORDER BY id"
+        "SELECT * FROM categorias ORDER BY nome"
     )->fetchAll(PDO::FETCH_ASSOC);
 
     // Buscar transações
@@ -144,6 +144,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_transacao']
 
 <body>
 
+<?php if (isset($_GET['sucesso'])): ?>
+
+    <div class="mensagem sucesso">
+        <?= htmlspecialchars($_GET['sucesso']) ?>
+    </div>
+
+<?php endif; ?>
+
 <div class="cards">
 
     <div class="card receita">
@@ -178,12 +186,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_transacao']
 
 <form method="POST">
 
-    <input
-        type="text"
-        name="nome"
-        placeholder="Nome da categoria"
-        required
-    >
+    <select name="nome" required>
+        <option value="">Selecione uma categoria</option>
+        <option value="Alimentação">Alimentação</option>
+        <option value="Transporte">Transporte</option>
+        <option value="Moradia">Moradia</option>
+        <option value="Saúde">Saúde</option>
+        <option value="Educação">Educação</option>
+        <option value="Lazer">Lazer</option>
+        <option value="Salário">Salário</option>
+        <option value="Freelance">Freelance</option>
+        <option value="Investimentos">Investimentos</option>
+        <option value="Outros">Outros</option>
+    </select>
 
     <input
         type="text"
@@ -279,6 +294,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_transacao']
 
     <label>Tipo:</label>
     <select name="tipo" required>
+        <option value="">Selecione o tipo</option>
         <option value="receita">Receita</option>
         <option value="despesa">Despesa</option>
     </select>
@@ -286,8 +302,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_transacao']
     <br><br>
 
     <label>Categoria:</label>
-
     <select name="categoria_id" required>
+        <option value="">Selecione uma categoria</option>
 
         <?php foreach ($categorias as $categoria): ?>
 

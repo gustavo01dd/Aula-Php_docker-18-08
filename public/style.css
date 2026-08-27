@@ -361,3 +361,39 @@ input[type="submit"]:focus-visible {
     white-space: nowrap;
   }
 }
+
+/* Mensagens de feedback (sucesso / erro) -------------------- */
+
+.mensagem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  border-left: 4px solid transparent;
+  margin-bottom: 22px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mensagem.sucesso {
+  background: var(--receita-soft);
+  border-left-color: var(--receita);
+  color: var(--receita);
+}
+
+.mensagem.sucesso::before {
+  content: "✅";
+  font-size: 15px;
+}
+
+.mensagem.erro {
+  background: var(--danger-soft);
+  border-left-color: var(--danger);
+  color: var(--danger);
+}
+
+.mensagem.erro::before {
+  content: "❌";
+  font-size: 15px;
+}

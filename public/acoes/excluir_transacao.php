@@ -29,7 +29,7 @@ try {
         ':id' => $id
     ]);
 
-    header("Location: ../index.php");
+    header("Location: ../index.php?sucesso=Transação excluída com sucesso!");
     exit;
 
 } catch (PDOException $e) {

@@ -44,7 +44,7 @@ try {
             ':id' => $id
         ]);
 
-        header("Location: ../index.php");
+        header("Location: ../index.php?sucesso=Categoria atualizada com sucesso!");
         exit;
     }
 
@@ -84,13 +84,61 @@ try {
 
     <form method="POST">
 
-        <label>Nome:</label>
-        <input
-            type="text"
-            name="nome"
-            value="<?= htmlspecialchars($categoria['nome']) ?>"
-            required
-        >
+        <select name="nome" required>
+
+            <option value="">Selecione uma categoria</option>
+
+            <option value="Alimentação"
+                <?= $categoria['nome'] === 'Alimentação' ? 'selected' : '' ?>>
+                Alimentação
+            </option>
+
+            <option value="Transporte"
+                <?= $categoria['nome'] === 'Transporte' ? 'selected' : '' ?>>
+                Transporte
+            </option>
+
+            <option value="Moradia"
+                <?= $categoria['nome'] === 'Moradia' ? 'selected' : '' ?>>
+                Moradia
+            </option>
+
+            <option value="Saúde"
+                <?= $categoria['nome'] === 'Saúde' ? 'selected' : '' ?>>
+                Saúde
+            </option>
+
+            <option value="Educação"
+                <?= $categoria['nome'] === 'Educação' ? 'selected' : '' ?>>
+                Educação
+            </option>
+
+            <option value="Lazer"
+                <?= $categoria['nome'] === 'Lazer' ? 'selected' : '' ?>>
+                Lazer
+            </option>
+
+            <option value="Salário"
+                <?= $categoria['nome'] === 'Salário' ? 'selected' : '' ?>>
+                Salário
+            </option>
+
+            <option value="Freelance"
+                <?= $categoria['nome'] === 'Freelance' ? 'selected' : '' ?>>
+                Freelance
+            </option>
+
+            <option value="Investimentos"
+                <?= $categoria['nome'] === 'Investimentos' ? 'selected' : '' ?>>
+                Investimentos
+            </option>
+
+            <option value="Outros"
+                <?= $categoria['nome'] === 'Outros' ? 'selected' : '' ?>>
+                Outros
+            </option>
+
+        </select>
 
         <br><br>
 

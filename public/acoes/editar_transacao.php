@@ -49,7 +49,7 @@ try {
             ':id' => $id
         ]);
 
-        header("Location: ../index.php");
+        header("Location: ../index.php?sucesso=Transação atualizada com sucesso!");
         exit;
     }
 
@@ -142,6 +142,8 @@ try {
         <label>Categoria:</label>
 
         <select name="categoria_id" required>
+
+            <option value="">Selecione uma categoria</option>
 
             <?php foreach ($categorias as $categoria): ?>
 
