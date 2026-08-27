@@ -144,7 +144,7 @@ try {
 
         <label>Cor:</label>
         <input
-            type="text"
+            type="color"
             name="cor"
             value="<?= htmlspecialchars($categoria['cor']) ?>"
             required

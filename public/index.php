@@ -209,7 +209,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_transacao']
     </select>
 
     <input
-        type="text"
+        type="color"
         name="cor"
         placeholder="#28a745"
         required
@@ -253,7 +253,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_transacao']
                 </td>
 
                 <td>
-                    <?= htmlspecialchars($categoria['tipo']) ?>
+                    <span class="badge <?= htmlspecialchars($categoria['tipo']) ?>">
+                        <?= htmlspecialchars($categoria['tipo']) ?>
+                    </span>
                 </td>
 
                 <td>
@@ -369,7 +371,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_transacao']
                 </td>
 
                 <td>
+                    <span class="badge <?= htmlspecialchars($transacao['tipo']) ?>">
                     <?= htmlspecialchars($transacao['tipo']) ?>
+                    </span>
                 </td>
 
                 <td>

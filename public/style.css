@@ -409,3 +409,27 @@ input[type="submit"]:focus-visible {
     visibility: hidden;
   }
 }
+
+input[type="color"] {
+  width: 52px;
+  height: 40px;
+  padding: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
+
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
