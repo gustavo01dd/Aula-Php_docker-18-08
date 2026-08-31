@@ -90,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_transacao']
             t.valor,
             t.tipo,
             c.nome AS categoria,
+            c.cor AS categoria_cor,
             t.data_transacao
          FROM transacoes t
          INNER JOIN categorias c ON t.categoria_id = c.id
@@ -249,7 +250,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_transacao']
                 </td>
 
                 <td>
-                    <?= htmlspecialchars($categoria['cor']) ?>
+                    <span
+                        class="cor-preview"
+                        style="background-color: <?= htmlspecialchars($categoria['cor']) ?>;"
+                        title="<?= htmlspecialchars($categoria['cor']) ?>"
+                    ></span>
                 </td>
 
                 <td>
@@ -377,6 +382,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_transacao']
                 </td>
 
                 <td>
+                    <span
+                        class="categoria-cor"
+                        style="background-color: <?= htmlspecialchars($transacao['categoria_cor'] ?? '#cccccc') ?>;"
+                    ></span>
                     <?= htmlspecialchars($transacao['categoria']) ?>
                 </td>
 
